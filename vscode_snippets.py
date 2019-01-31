@@ -1,6 +1,6 @@
+import collections
 import json
 import pathlib
-import collections
 
 
 class Snippet:
