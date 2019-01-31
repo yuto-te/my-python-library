@@ -9,7 +9,6 @@ class WeightedUnionFind:
         self.rank = [0] * (n+1)
         # 根への距離を管理
         self.weight = [0] * (n+1)
-
     # 検索
     def find(self, x):
         if self.par[x] == x:
@@ -20,7 +19,6 @@ class WeightedUnionFind:
             self.weight[x] += self.weight[self.par[x]]
             self.par[x] = y
             return y
-
     # 併合
     def unite(self, x, y, w):
         rx = self.find(x)
@@ -36,11 +34,9 @@ class WeightedUnionFind:
             # 木の高さが同じだった場合の処理
             if self.rank[rx] == self.rank[ry]:
                 self.rank[rx] += 1
-
     # 同じ集合に属するか
     def same(self, x, y):
         return self.find(x) == self.find(y)
-
     # xからyへのコスト
     def diff(self, x, y):
         return self.weight[x] - self.weight[y]
