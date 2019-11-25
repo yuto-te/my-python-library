@@ -37,9 +37,9 @@ class Snippet:
 
 def main():
     path = pathlib.Path("src/")
-    json_data = []
+    json_data = {}
     for p in path.glob("*.py"):
-        json_data.append(Snippet(p).toJson())
+        json_data.update(Snippet(p).toJson())
     with open("python.json", 'w') as f:
         json.dump(json_data, f, indent=4)
 
